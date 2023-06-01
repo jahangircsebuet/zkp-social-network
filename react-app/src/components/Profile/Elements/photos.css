@@ -1,0 +1,29 @@
+#photos > h3 {
+    font-size: 22px;
+}
+
+#photos > * {
+    padding: 3px 10px;
+    margin: 0;
+}
+
+#tiles {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+#tiles > img {
+    width: 31%;
+    height: 120px;
+}
+
+#tiles > h4 {
+    font-size: 20px;
+    text-align: center;
+    width: 100%;
+}

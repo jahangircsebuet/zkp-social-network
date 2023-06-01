@@ -1,0 +1,92 @@
+.comment {
+    position: relative;
+    max-width: 90%;
+    overflow: hidden;
+    margin: 0 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    padding-bottom: 10px;
+}
+
+.comment-form > textarea:focus {
+    background-color: white;
+}
+
+.comment > img {
+    align-self: flex-start;
+    position: relative;
+    top: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+}
+
+.comment > div > small {
+    align-self: flex-end;
+    position: relative;
+    bottom: -5px;
+    left: 10px;
+}
+
+.comment > div > div > h4,
+.comment > div > div > p {
+    margin: 0;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.comment > div {
+    width: fit-content;
+    max-width: 95%;
+}
+
+.comment > div > div:not(.comment-dropdown) {
+    background-color: rgba(0, 0, 0, 0.075);
+    padding: 5px 10px;
+    margin: 4px 0;
+    border-radius: 10px;
+    max-width: 95%;
+}
+
+.comment-menu-button {
+    position: absolute;
+    top: 55px;
+    left: 5px;
+    padding: 1px 4px;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+.comment-menu-button:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.comment-dropdown {
+    position: absolute;
+    top: 8px;
+    left: 30px;
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 1;
+}
+
+.greyLike {
+    color: #65676b;
+}
+
+.comment-button {
+    box-shadow: none;
+}

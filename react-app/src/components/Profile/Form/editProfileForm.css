@@ -1,0 +1,101 @@
+#profile-form {
+    max-width: 60vw;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#profile-form img {
+    max-width: calc(100% - 10px);
+    max-height: 30vh;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+.edit-profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.edit-profile-form > textarea {
+    width: 90%;
+    height: 3em;
+    resize: none;
+    border-radius: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    outline: none;
+}
+
+.profile-datefields {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 90%;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+}
+
+.profile-datefields > label {
+    flex-grow: 1;
+}
+
+.profile-datefields > input {
+    border-radius: 3px;
+    outline: none;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.state-select {
+    border-radius: 3px;
+}
+
+#update-profile-button {
+    background-color: #1877f2;
+    height: 48px;
+    border-radius: 6px;
+    padding: 8px 10px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+#update-profile-button:hover {
+    background-color: #3a73ce;
+}
+
+.profile-errors {
+    position: relative;
+    align-self: flex-start;
+}
+
+.profile-errors::after {
+    content: "";
+    position: absolute;
+    background-color: #be4b49;
+    top: -5px;
+    right: -30px;
+    height: 20px;
+    width: 12px;
+    clip-path: polygon(100% 0, 0 0, 50% 50%);
+    box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+}
+
+.profile-error {
+    position: absolute;
+    background-color: #be4b49;
+    padding: 1px 16px;
+    width: max-content;
+    left: 5px;
+    bottom: 3px;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 0 0 1px rgb(139 3 0 / 75%), 0 1px 10px rgb(0 0 0 / 35%);
+    color: #fff;
+}

@@ -1,0 +1,32 @@
+#left-sidebar {
+    max-width: 340px;
+    box-sizing: border-box;
+    margin-left: 10px;
+    grid-area: left;
+}
+
+#left-sidebar > a > img {
+    height: 40px;
+    width: 40px;
+}
+
+#left-sidebar > a:visited {
+    text-decoration: none;
+    color: rgb(5, 5, 5);
+}
+
+#left-sidebar > a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+#left-sidebar > a {
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: rgb(5, 5, 5);
+    overflow: hidden;
+}
