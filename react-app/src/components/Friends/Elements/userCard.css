@@ -1,0 +1,34 @@
+.userCard {
+    width: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: white;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 3px;
+    height: fit-content;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.cardTop {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cardTop > img {
+    width: 100%;
+    height: 220px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.cardTop > div {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 2.5em;
+    text-align: center;
+}

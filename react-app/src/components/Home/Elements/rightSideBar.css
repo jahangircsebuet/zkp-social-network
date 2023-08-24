@@ -1,0 +1,58 @@
+#right-sidebar {
+    max-width: 340px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    grid-area: right;
+    justify-self: end;
+}
+
+#right-sidebar > h3 {
+    padding: 5px 20px;
+}
+
+.rightside-friend {
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    margin-right: 20px;
+    padding: 5px 20px;
+}
+
+.rightside-friend:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.rightside-friend > img {
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.ad {
+    padding-left: 15px;
+    display: flex;
+    gap: 8px;
+}
+
+.ad h4 {
+    margin: 12px 0;
+}
+
+.ad a {
+    color: #1877f2;
+    text-decoration: underline;
+}
+
+.ad a:hover {
+    color: #3569bb;
+}
+
+.ad > img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+}

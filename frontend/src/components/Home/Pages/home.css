@@ -1,0 +1,14 @@
+#home {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: " left mid right ";
+    gap: 15px;
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.profile-img-circle {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+}

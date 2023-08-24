@@ -1,0 +1,12 @@
+#intro > h3 {
+    font-size: 22px;
+}
+
+#intro > p {
+    font-size: 18px;
+}
+
+#intro > * {
+    padding: 3px 10px;
+    margin: 0;
+}
