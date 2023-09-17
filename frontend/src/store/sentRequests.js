@@ -18,17 +18,24 @@ const deleteRequest = request => ({
     payload: request,
 });
 
+// Create a friend request.
 export const requestFriend = (user_id, friend_id) => async dispatch => {
-    const response = await fetch("/api/friends/", {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch("http://localhost:5000/friends/requests", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ user_id, friend_id }),
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(createRequest(data));
+        dispatch(createRequest(data.friend));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -40,8 +47,21 @@ export const requestFriend = (user_id, friend_id) => async dispatch => {
     }
 };
 
+// Read all sent requests.
 export const getSentRequests = () => async dispatch => {
-    const response = await fetch(`/api/friends/requests/sent/`);
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    // const response = await fetch(`/api/friends/requests/sent/`);
+    const response = await fetch("/api/friends/requests/sent", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "token": token,
+        },
+    });
     if (response.ok) {
         const data = await response.json();
         dispatch(readRequests(data));

@@ -23,7 +23,7 @@ function EditPostForm({ post, setShowEditPost }) {
             const imageData = new FormData();
             imageData.append("image", image);
 
-            const imageRes = await fetch(`http://localhost:5000/api/images/`, {
+            const imageRes = await fetch(`http://localhost:5000/images/`, {
                 method: "POST",
                 body: imageData,
             });

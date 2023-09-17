@@ -5,6 +5,7 @@ import ProtectedRoute from "./components/auth/ProtectedRoute";
 import { authenticate } from "./store/session";
 import NavBar from "./components/Navbar/NavBar";
 import Home from "./components/Home/Pages";
+import LogoutPage from "./components/Home/Pages/LogoutPage";
 import FriendsPage from "./components/Friends/Pages/FriendsPage";
 import UsersPage from "./components/Friends/Pages/UsersPage";
 import RequestsPage from "./components/Friends/Pages/RequestsPage";
@@ -12,6 +13,8 @@ import ContactPage from "./components/Contact/pages/ContactPage";
 import ProfilePage from "./components/Profile/Pages/ProfilePage";
 import NotFound from "./components/NotFound/NotFound";
 import authContext from "./components/Contexts/authContext";
+import { Redirect } from 'react-router';
+import DefaultPageForInvalidURL from "./components/Home/Pages/DefaultPageForInvalidURL";
 
 function App() {
     const [loaded, setLoaded] = useState(false);
@@ -52,6 +55,10 @@ function App() {
                     element={<ProfilePage />}
                 />
                 <Route
+                    path="/logout"
+                    element={<LogoutPage />}
+                />
+                <Route
                     path=""
                     element={<Home />}
                 />
@@ -59,6 +66,7 @@ function App() {
                     path=""
                     element={<NotFound />}
                 />
+                 <Route path="*" element={<DefaultPageForInvalidURL />} />
             </Routes>
         </BrowserRouter>
     );

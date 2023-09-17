@@ -12,8 +12,21 @@ const deleteRequest = request => ({
     payload: request,
 });
 
+// Read all received friend requests.
 export const getRequests = () => async dispatch => {
-    const response = await fetch(`/api/friends/requests/`);
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    // const response = await fetch(`http://localhost:5000/friends/requests/received`);
+    const response = await fetch("http://localhost:5000/friends/requests/received", {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "token": token,
+        },
+    });
     if (response.ok) {
         const data = await response.json();
         dispatch(readRequests(data));

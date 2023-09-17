@@ -13,6 +13,8 @@ const SignUpForm = () => {
     const [birthday, setBirthday] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [gender, setGender] = useState("");
+    const [signupSuccessText, setSignupSuccessText] = useState("");
 
     const [errors, setErrors] = useState([]);
     const [firstNameErrors, setFirstNameErrors] = useState([]);
@@ -35,10 +37,14 @@ const SignUpForm = () => {
         setErrors([]);
 
         const data = await dispatch(
-            signUp(firstName, lastName, email, reEmail, password, confirmPassword, birthday)
+            signUp(firstName, lastName, email, reEmail, password, confirmPassword, birthday, gender)
         );
-        if (data) {
-            setErrors(data);
+        console.log("signup data");
+        console.log(data);
+        if(data.success) {
+            setSignupSuccessText("Signup successful!");
+        } else {
+            setErrors(data.errors);
         }
     };
 
@@ -77,7 +83,7 @@ const SignUpForm = () => {
                 <>
                     <div id="signup-text">
                         <h2>Sign Up</h2>
-                        It's quick and easy.
+                        {signupSuccessText.length > 0? signupSuccessText: "It's quick and easy."}
                     </div>
                     <form onSubmit={onSignUp} id="signup-form">
                         {firstNameErrors.length > 0 && (
@@ -193,6 +199,17 @@ const SignUpForm = () => {
                                     <option key={year}>{2022 - year}</option>
                                 ))}
                             </select>
+                        </div>
+                        <div className="required"></div>
+                        <label>Gender</label>
+                        <div style={{
+                                width: "300px", 
+                                display: "inline-block",
+                                }}>
+                                <input type="radio" id="male" name="gender" value="Male" onClick={e => setGender(e.target.value)} />
+                                <label htmlFor="male">Male</label><br/>
+                                <input type="radio" id="female" name="gender" value="Female" onClick={e => setGender(e.target.value)} />
+                                <label htmlFor="female">Female</label><br/>
                         </div>
                         <small style={{ position: "relative", marginTop: "5px", color: "#919191" }}>
                             <strong

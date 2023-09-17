@@ -12,3 +12,4 @@ class Config:
     SQLALCHEMY_ECHO = True
     WTF_CSRF_ENABLED = False
     WTF_CSRF_CHECK_DEFAULT = False
+    STATIC_FOLDER = 'static'

@@ -13,9 +13,24 @@ const deleteUser = user => ({
 });
 
 export const getUsers = () => async dispatch => {
-    const response = await fetch(`/api/users/`);
+    console.log("users.js -> getUsers");
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    // const response = await fetch(`http://localhost:5000/users`);
+    const response = await fetch(`http://localhost:5000/users`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "token": token,
+        },
+    });
     if (response.ok) {
         const data = await response.json();
+        console.log("getUsers  response");
+        console.log(data);
         dispatch(readUsers(data));
         return null;
     } else if (response.status < 500) {

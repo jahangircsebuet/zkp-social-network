@@ -25,6 +25,9 @@ function ProfilePage() {
         return post.user_id === profile.id;
     });
 
+    console.log("user");
+    console.log(user);
+
     const dispatch = useDispatch();
 
     useEffect(() => {

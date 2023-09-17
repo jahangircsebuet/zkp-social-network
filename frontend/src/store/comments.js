@@ -27,16 +27,23 @@ const deleteComment = id => ({
 export const makeComment = (post_id, text) => async dispatch => {
     const created_at = new Date().toUTCString();
     const edited_at = new Date().toUTCString();
-    const response = await fetch("/api/comments/", {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch("http://localhost:5000/comments", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ post_id, text, created_at, edited_at }),
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(createComment(data));
+        console.log("data.comment: ", data.comment);
+        dispatch(createComment(data.comment));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -49,10 +56,21 @@ export const makeComment = (post_id, text) => async dispatch => {
 };
 
 export const getComments = postId => async dispatch => {
-    const response = await fetch(`/api/comments/${postId}/`);
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch(`http://localhost:5000/comments/${postId}/`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "token": token,
+        },
+    });
     if (response.ok) {
         const data = await response.json();
-        dispatch(readComments(data));
+        dispatch(readComments(data.comments));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -66,16 +84,22 @@ export const getComments = postId => async dispatch => {
 
 export const editComment = (post_id, comment_id, text) => async dispatch => {
     const edited_at = new Date().toUTCString();
-    const response = await fetch(`/api/comments/${comment_id}/`, {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch(`http://localhost:5000/comments/${comment_id}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ post_id, text, edited_at }),
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(updateComment(data));
+        dispatch(updateComment(data.comment));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -88,10 +112,16 @@ export const editComment = (post_id, comment_id, text) => async dispatch => {
 };
 
 export const removeComment = commentId => async dispatch => {
-    const response = await fetch(`/api/comments/${commentId}/`, {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch(`http://localhost:5000/comments/${commentId}/`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
     });
     if (response.ok) {
@@ -128,8 +158,18 @@ export default function reducer(state = initialState, action) {
             updateState[action.payload.post_id].comments[action.payload.id] = action.payload;
             return updateState;
         case DELETE_COMMENT:
+            // console.log("action.payload.post_id: " + action.payload.post_id);
+            // console.log("action.payload.id: " + action.payload.id);
             const deleteState = { ...state };
-            delete deleteState[action.payload.post_id].comments[action.payload.id];
+            deleteState[action.payload.post_id].comments.forEach((element, idx) => {
+                // console.log("element.id: " + element.id);
+                // console.log("idx: " + idx);
+                console.log("deleteState[action.payload.post_id].comments[idx]: " + deleteState[action.payload.post_id].comments[idx]);
+                if(element.id == action.payload.id) {
+                    delete deleteState[action.payload.post_id].comments[idx];        
+                }
+            })
+            // delete deleteState[action.payload.post_id].comments[action.payload.id];
             return deleteState;
         default:
             return state;

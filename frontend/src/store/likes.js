@@ -19,16 +19,22 @@ const deleteLike = id => ({
 });
 
 export const makeLike = (post_id, comment_id) => async dispatch => {
-    const response = await fetch("/api/likes/", {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch("http://localhost:5000/likes", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ post_id, comment_id }),
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(createLike(data));
+        dispatch(createLike(data.like));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -41,10 +47,27 @@ export const makeLike = (post_id, comment_id) => async dispatch => {
 };
 
 export const getLikes = () => async dispatch => {
-    const response = await fetch(`http://localhost:5000/api/likes/`);
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    // const response = await fetch(`http://localhost:5000/likes`);
+    const response = await fetch(`http://localhost:5000/likes`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "token": token,
+        },
+    });
+    
     if (response.ok) {
         const data = await response.json();
-        dispatch(readLikes(data));
+        console.log("getLikes->data");
+        console.log(data);
+        if(data.likes.length > 0) {
+            dispatch(readLikes(data));
+        }
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -57,10 +80,16 @@ export const getLikes = () => async dispatch => {
 };
 
 export const removeLike = likeId => async dispatch => {
-    const response = await fetch(`http://localhost:5000/api/likes/${likeId}/`, {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch(`http://localhost:5000/likes/${likeId}/`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
     });
     if (response.ok) {

@@ -5,15 +5,19 @@ import LoginForm from "../../auth/LoginForm";
 import SignUpForm from "../../auth/SignUpForm";
 import { Modal } from "../../Modal";
 import "./login.css";
+import { useSelector } from "react-redux";
 
 function LogInPage() {
     const [showSignUp, setShowSignUp] = useState(false);
     const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
+    
+    console.log("LoginPage.user");
+    console.log(user);
 
     const demoLogin = e => {
         console.log("demoLogin");
         e.preventDefault();
-
         dispatch(login("demo@demo.com", "password"));
     };
     return (

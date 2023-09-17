@@ -14,8 +14,8 @@ function Post({ post }) {
     const user = useSelector(state => state.session.user);
     const friends = [];
 //    useSelector(state => state.friends);
-    const comments = [];
-//    Object.values(useSelector(state => state.posts[post.id].comments));
+    const comments = Object.values(useSelector(state => state.posts[post.id].comments));
+   
     const likes = [];
 //    Object.values(useSelector(state => state.likes)).filter(
 //        like => like.post_id === post.id

@@ -17,7 +17,7 @@ function HomePage() {
         <div id="home">
             <LeftSideBar />
             <PostFeed />
-            <RightSideBar />
+            {/* <RightSideBar /> */}
         </div>
     );
 }

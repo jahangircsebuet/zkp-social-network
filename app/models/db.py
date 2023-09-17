@@ -3,8 +3,10 @@ from flask_mysqldb import MySQL
 
 # add import and set variable to access flask environment
 import os
-environment = os.getenv("FLASK_ENV")
-SCHEMA = os.environ.get('SCHEMA')
+# environment = os.getenv("FLASK_ENV")
+environment = None
+# SCHEMA = os.environ.get('SCHEMA')
+SCHEMA = None
 
 db = SQLAlchemy()
 

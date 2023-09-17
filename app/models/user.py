@@ -5,11 +5,12 @@ from flask_login import UserMixin
 from .post import Post
 
 
-class User(db.Model, UserMixin):
+# class User(db.Model, UserMixin):
+class User(db.Model):
     __tablename__ = 'users'
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
+    # if environment == "production":
+    #     __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(30), nullable=False)
@@ -17,6 +18,7 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
     birthday = db.Column(db.Date, nullable=False)
+    gender = db.Column(db.String(255), nullable=False)
     bio = db.Column(db.String(101), nullable=True)
     lives_in = db.Column(db.String(255), nullable=True)
     born_from = db.Column(db.String(255), nullable=True)
@@ -54,6 +56,7 @@ class User(db.Model, UserMixin):
             'last_name': self.last_name,
             'email': self.email,
             'birthday': self.birthday,
+            'gender': self.gender,
             'bio': self.bio,
             'lives_in': self.lives_in,
             'born_from': self.born_from,

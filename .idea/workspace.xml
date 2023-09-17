@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4f66c775-f9f2-4cdd-98a9-b0715d842eb8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/app/decorators/decorators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/auth_routes.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/auth_routes.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/config.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms/signup_form.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms/signup_form.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/user.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/user.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/seeds/users.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/seeds/users.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Comment/Elements/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Comment/Elements/Comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/Elements/LeftSideBar.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/Elements/LeftSideBar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/Pages/HomePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/Pages/HomePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/Pages/LogInPage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/Pages/LogInPage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Home/Pages/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Home/Pages/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/Elements/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/Elements/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/Form/CreatePostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/Form/CreatePostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Post/Form/EditPostForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Post/Form/EditPostForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/ProfilePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/Profile/Pages/ProfilePage.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/components/auth/SignUpForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/components/auth/SignUpForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/comments.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/comments.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/friends.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/friends.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/likes.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/likes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/posts.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/posts.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/receivedRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/receivedRequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/sentRequests.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/sentRequests.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/session.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/session.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/frontend/src/store/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/frontend/src/store/users.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/README" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/alembic.ini" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/env.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/script.py.mako" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/versions/663fe7854acf_initial_migration.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="true" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="2UAHkyyQuPnl63HJBEQ9lKqBnko" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/SIU856536296/Downloads/Gender/gender_identification_2023",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.lookFeel"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\git\zkp-social-network" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\xampp\htdocs\git\zkp-social-network\app" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.govt.module.repository" />
+      <recent name="com.govt.module.controller" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="SpringBootReactjsCrudAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.govt.module.SpringBootReactjsCrudAppApplication" />
+      <module name="zkp-social-network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.govt.module.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="com.facebook.module.SpringBootReactjsCrudAppApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.facebook.module.SpringBootReactjsCrudAppApplication" />
+      <module name="zkp-social-network" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.facebook.module.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4f66c775-f9f2-4cdd-98a9-b0715d842eb8" name="Changes" comment="" />
+      <created>1692375612093</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1692375612093</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.py" />
+  </component>
+</project>

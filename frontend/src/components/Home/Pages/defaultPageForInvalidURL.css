@@ -1,0 +1,14 @@
+#invalidURL {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#invalidURL > a {
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+#invalidURL > a:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}

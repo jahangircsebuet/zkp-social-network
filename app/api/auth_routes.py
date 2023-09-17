@@ -18,15 +18,11 @@ def validation_errors_to_error_messages(validation_errors):
     return errorMessages
 
 
-@auth_routes.route('/')
+@auth_routes.route('/', methods=['POST'])
 def authenticate():
     """
     Authenticates a user.
     """
-    print("authenticate")
-    print("current_user: ", current_user)
-    if current_user.is_authenticated:
-        return current_user.to_dict()
     return {'errors': ['Unauthorized']}
 
 
@@ -75,6 +71,7 @@ def sign_up():
             email=form.data['email'],
             password=form.data['password'],
             birthday=form.data['birthday'],
+            gender=form.data['gender'],
         )
         print(user.to_dict())
         db.session.add(user)

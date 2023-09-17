@@ -32,8 +32,7 @@ export const makePost = (text, image_link) => async dispatch => {
     if(localStorage.getItem("token")) {
         token = localStorage.getItem("token");
     }
-    console.log("token: " + token);
-    const response = await fetch("http://localhost:5000/api/posts", {
+    const response = await fetch("http://localhost:5000/posts", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -43,7 +42,7 @@ export const makePost = (text, image_link) => async dispatch => {
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(createPost(data));
+        dispatch(createPost(data.post));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -61,16 +60,21 @@ export const getPosts = () => async dispatch => {
         token = localStorage.getItem("token");
     }
     console.log("token: " + token);
-//    const response = await fetch("http://localhost:5000/api/posts/");
-    const response = await fetch("http://localhost:5000/api/posts", {
+//    const response = await fetch("http://localhost:5000/posts/");
+    const response = await fetch(`http://localhost:5000/posts`, {
         method: "GET",
         headers: {
+            "Content-Type": "application/json",
             "token": token,
         },
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(readPosts(data));
+        if(data.success) {
+            // TODO fix the image url
+            dispatch(readPosts(data));
+        }
+        
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -83,17 +87,23 @@ export const getPosts = () => async dispatch => {
 };
 
 export const editPost = (postId, text, image_link) => async dispatch => {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
     const edited_at = new Date().toUTCString();
-    const response = await fetch(`http://localhost:5000/api/posts/${postId}/`, {
+    const response = await fetch(`http://localhost:5000/posts/${postId}/`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ text, image_link, edited_at }),
     });
     if (response.ok) {
         const data = await response.json();
-        dispatch(updatePost(data));
+        dispatch(updatePost(data.post));
         return null;
     } else if (response.status < 500) {
         const data = await response.json();
@@ -111,7 +121,7 @@ export const removePost = postId => async dispatch => {
         token = localStorage.getItem("token");
     }
     console.log("token: " + token);
-    const response = await fetch(`http://localhost:5000/api/posts/${postId}/`, {
+    const response = await fetch(`http://localhost:5000/posts/${postId}/`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
@@ -138,11 +148,15 @@ const initialState = {};
 export default function reducer(state = initialState, action) {
     switch (action.type) {
         case CREATE_POST:
+            console.log("reducer->CREATE_POST");
+            console.log(action.payload);
             const createState = { ...state };
             createState[action.payload.id] = { ...action.payload, comments: {} };
             return createState;
         case READ_POST:
             const readState = {};
+            console.log("action.payload");
+            console.log(action.payload);
             action.payload.posts.forEach(post => {
                 readState[post.id] = post;
             });

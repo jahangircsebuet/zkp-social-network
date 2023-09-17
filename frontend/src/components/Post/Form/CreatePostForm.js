@@ -32,7 +32,7 @@ function CreatePostForm() {
         const imageData = new FormData();
         imageData.append("image", image);
 
-        let api_url = "http://localhost:5000/api/images";
+        let api_url = "http://localhost:5000/images";
         const imageRes = await fetch(api_url, {
             method: "POST",
             headers: {
@@ -42,9 +42,15 @@ function CreatePostForm() {
         });
 
         if (imageRes.ok) {
-            image_link = await imageRes.json();
-            image_link = image_link.url;
-            console.log("image_link: " + image_link);
+            let response = await imageRes.json();
+            console.log("response of /images api");
+            console.log(response);
+            if(response.success) {
+                image_link = response.url;
+                console.log("image_link: " + image_link);
+            } else {
+                return response.message;
+            }
         } else if (imageRes.status < 500) {
             const data = await imageRes.json();
             if (data.errors) {

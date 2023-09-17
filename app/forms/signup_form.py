@@ -60,3 +60,4 @@ class SignUpForm(FlaskForm):
     confirmPassword = StringField(
         'confirmPassword', validators=[DataRequired(), confirm_password_check])
     birthday = StringField('birthday', validators=[DataRequired(), age_check])
+

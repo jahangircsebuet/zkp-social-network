@@ -19,8 +19,21 @@ const deleteFriend = id => ({
     payload: id,
 });
 
+// Read all friends.
 export const getFriends = () => async dispatch => {
-    const response = await fetch(`http://localhost:5000/api/friends/`);
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    // const response = await fetch(`http://localhost:5000/friends`);
+    const response = await fetch(`http://localhost:5000/friends`, {
+        method: "GET",
+        headers: {
+            "Content-Type": "application/json",
+            "token": token,
+        },
+    });
     if (response.ok) {
         const data = await response.json();
         dispatch(readFriends(data));
@@ -35,11 +48,18 @@ export const getFriends = () => async dispatch => {
     }
 };
 
+// Update (Accept) friend request.
 export const acceptFriend = (user_id, friend_id) => async dispatch => {
-    const response = await fetch(`http://localhost:5000/api/friends/`, {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch(`http://localhost:5000/friends/requests`, {
         method: "PATCH",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ user_id, friend_id }),
     });
@@ -57,11 +77,18 @@ export const acceptFriend = (user_id, friend_id) => async dispatch => {
     }
 };
 
+// Delete a friend or decline friend request.
 export const removeFriend = (user_id, friend_id) => async dispatch => {
-    const response = await fetch(`/api/friends/`, {
+    let token = null;
+    if(localStorage.getItem("token")) {
+        token = localStorage.getItem("token");
+    }
+    console.log("token: " + token);
+    const response = await fetch(`http://localhost:5000/friends`, {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
+            "token": token,
         },
         body: JSON.stringify({ user_id, friend_id }),
     });

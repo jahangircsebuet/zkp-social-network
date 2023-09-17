@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import friendsIcon from "../../images/friends-icon.png";
 import defaultProfileIcon from "../../images/default-profile.png";
 import "./leftSideBar.css";
+import LogoutButton from "../../auth/LogoutButton";
 
 import { useSelector } from "react-redux";
 
@@ -32,6 +33,11 @@ function LeftSideBar() {
                 <img src={friendsIcon} alt="friends" />
                 Friends
             </Link>
+            {/* <Link to="/logout">
+                <img src={friendsIcon} alt="logout" />
+                Logout
+            </Link> */}
+            <LogoutButton />
         </div>
     );
 }

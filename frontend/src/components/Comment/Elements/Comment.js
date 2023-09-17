@@ -20,8 +20,22 @@ function Comment({ comment }) {
 
     useEffect(() => {
         (async () => {
-            const res = await fetch(`/api/users/${comment.user_id}/`);
-            setCommenter(await res.json());
+            let token = null;
+            if(localStorage.getItem("token")) {
+                token = localStorage.getItem("token");
+            }
+            console.log("token: " + token);
+            // const res = await fetch(`http://localhost:5000/users/${comment.user_id}/`);
+            const res = await fetch(`http://localhost:5000/users/${comment.user_id}/`, {
+                method: "GET",
+                headers: {
+                    "Content-Type": "application/json",
+                    "token": token,
+                },
+            });
+            let comment_user = await res.json();
+            console.log("comment_user: " + comment_user.user);
+            setCommenter(comment_user.user);
         })();
     }, [comment.user_id]);
 
